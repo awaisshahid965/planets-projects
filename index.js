@@ -4,6 +4,12 @@ const fs = require("fs");
 const results = [];
 
 fs.createReadStream("./kepler_dataa.csv")
+  .pipe(
+    parse({
+      comment: "#",
+      columns: true,
+    })
+  )
   .on("data", (chunk) => {
     results.push(chunk);
   })
