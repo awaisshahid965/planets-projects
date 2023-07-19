@@ -19,9 +19,9 @@ fs.createReadStream("./kepler_data.csv")
       columns: true,
     })
   )
-  .on("data", (chunk) => {
-    if (isHabitablePlanet(chunk)) {
-      habitablePlanets.push(chunk);
+  .on("data", (dataChunk) => {
+    if (isHabitablePlanet(dataChunk)) {
+      habitablePlanets.push(dataChunk);
     }
   })
   .on("error", (err) => {
